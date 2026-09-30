@@ -1,7 +1,7 @@
-   import streamlit as st
+import streamlit as st
 from google import genai
 
-st.set_page_config(page_title="RAS-Guru", page_icon="👑")
+st.set_page_config(page_title="RAS-Guru")
 st.title("RAS-Guru")
 st.caption("RPSC Prelims + Mains - Jaipur Expert")
 
@@ -18,10 +18,7 @@ if st.button("Guru Ji se pucho"):
     if not q:
         st.warning("Pehle sawal likho!")
     else:
-        try:
-            with st.spinner("Soch rahe hain..."):
-                prompt = f"You are RAS Guru, RPSC expert. Mode {mode} me jawab do: {q}. Hindi me."
-                res = client.models.generate_content(model="gemini-3.8-flash", contents=prompt)
-                st.success(res.text)
-        except Exception as e:
-            st.error(f"Error: {e}")
+        with st.spinner("Soch rahe hain..."):
+            prompt = f"You are RAS Guru. Mode {mode}. Q: {q}. Hindi me jawab do."
+            res = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
+            st.success(res.text)
