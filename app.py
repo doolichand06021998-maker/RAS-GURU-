@@ -1,3 +1,4 @@
+
 import streamlit as st
 from google import genai
 
@@ -20,5 +21,5 @@ if st.button("Guru Ji se pucho"):
     else:
         with st.spinner("Soch rahe hain..."):
             prompt = f"You are RAS Guru. Mode {mode}. Q: {q}. Hindi me jawab do."
-            res = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
+            res = client.models.generate_content(model="gemini-1.5-flash", contents=prompt)
             st.success(res.text)
