@@ -20,7 +20,7 @@ if st.button("Guru Ji se pucho"):
         with st.spinner("Soch rahe hain..."):
             try:
                 prompt = f"Tum RAS Guru ho, RPSC expert. {mode} me jawab do: {q}"
-                res = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
+                res = client.models.generate_content(model="gemini-2.5-flash", contents=prompt)
                 st.success(res.text)
             except Exception as e:
                 st.error(f"Error: {e}")       
